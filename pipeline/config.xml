@@ -1,0 +1,77 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1415.v4f9c9131248b_">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2198.v41dd8ef6dd56"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2198.v41dd8ef6dd56">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description> 流水线任务 pipeline</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>branch</name>
+          <description> 构建分支</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>master</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>tag_name</name>
+          <description>是否需要创建 tag 并推送到仓库；
+为空默认不生成并且不推送；</description>
+          <trim>true</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@3894.vd0f0248b_a_fc4">
+    <script>pipeline {
+    agent any
+    
+    tools {
+        nodejs &apos;nodejs_22.0.0&apos; 
+    }
+    
+    stages {
+        stage(&apos;prepare&apos;) {
+            steps {
+                sh &apos;pnpm -v&apos;
+                checkout changelog: false, poll: false, scm: scmGit(branches: [[name: &apos;*/${branch}&apos;]], extensions: [], userRemoteConfigs: [[url: &apos;https://github.com/Abunuo/vite-typescript.git&apos;]])
+            }
+        }
+        stage(&apos;Github&apos;) {
+            steps {
+                sh &apos;git switch ${branch}&apos;
+                sh &apos;git pull&apos;
+                sh &apos;&apos;&apos;if [ $tag_name != &quot;&quot; ]
+                    then
+                        echo \&apos;build tag···\&apos;;
+                    	git tag $tag_name -m \&apos;jenkins build tag\&apos;;
+                        git tag --list;
+                        git push origin $tag_name;
+                    fi&apos;&apos;&apos;
+            }
+        }
+        stage(&apos;build&apos;) {
+            steps {
+                sh &apos;rm -rf node_modules&apos;
+                sh &apos;pnpm install&apos;
+                sh &apos;pnpm build&apos;
+            }
+        }
+    }
+   
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

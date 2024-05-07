@@ -1,0 +1,75 @@
+Started by user [8mha:////4BD6S7qe0eceJcCBofcc7b+xcLUxPTP5MtncP8WVo19DAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /Users/monologue/.jenkins/workspace/test
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /Users/monologue/.jenkins/workspace/test/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Abunuo/vite-typescript.git/ # timeout=10
+Fetching upstream changes from https://github.com/Abunuo/vite-typescript.git/
+ > git --version # timeout=10
+ > git --version # 'git version 2.32.0 (Apple Git-132)'
+ > git fetch --tags --force --progress -- https://github.com/Abunuo/vite-typescript.git/ +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 7ed388d5c0ff919385f01750dab15e8c8493c688 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 7ed388d5c0ff919385f01750dab15e8c8493c688 # timeout=10
+Commit message: "add QS package"
+ > git rev-list --no-walk 7ed388d5c0ff919385f01750dab15e8c8493c688 # timeout=10
+[test] $ /bin/sh -xe /var/folders/lh/z0j870196l7g41pb1k29h6nw0000gp/T/jenkins18184915108035706864.sh
++ export CI=false
++ CI=false
++ git tag 111 -m 'jenkins build tag'
++ git tag --list
+111
+v1.0.0
++ rm -rf node_modules
++ pnpm install
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +129
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 129, reused 90, downloaded 0, added 0
+Progress: resolved 129, reused 125, downloaded 0, added 8
+Progress: resolved 129, reused 129, downloaded 0, added 127
+Progress: resolved 129, reused 129, downloaded 0, added 129, done
+
+dependencies:
++ @sentry/tracing 7.112.2
++ @sentry/vue 7.112.2
++ axios 0.21.4
++ element-plus 1.0.2-beta.71
++ highcharts 9.3.3
++ lodash 4.17.21
++ mitt 2.1.0
++ qs 6.12.1
+
+devDependencies:
++ @types/lodash 4.17.0
++ @types/node 14.18.63
++ @types/qs 6.9.15
++ @types/webpack-env 1.18.4
++ @vitejs/plugin-vue 1.10.2
++ @vue/compiler-sfc 3.4.26
++ autoprefixer 10.4.19
++ cross-env 7.0.3
++ sass 1.75.0
++ typescript 4.9.5
++ vite 2.9.18
++ vite-plugin-sentry 1.4.0
++ vue 3.4.26
++ vue-router 4.3.2
++ vuex 4.1.0
+
+Done in 4.7s
++ pnpm build
+
+> vite-ts@0.0.1 build /Users/monologue/.jenkins/workspace/test
+> vite build && rm -rf dist/**/*.js.map
+
+[36mvite v2.9.18 [32mbuilding for production...[36m[39m
+transforming...
+ ELIFECYCLE  Command failed.
+Build was aborted
+Aborted by [8mha:////4BD6S7qe0eceJcCBofcc7b+xcLUxPTP5MtncP8WVo19DAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Finished: ABORTED

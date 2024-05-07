@@ -1,0 +1,123 @@
+Started by user [8mha:////4BD6S7qe0eceJcCBofcc7b+xcLUxPTP5MtncP8WVo19DAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /Users/monologue/.jenkins/workspace/test
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/Abunuo/vite-typescript.git/
+ > git init /Users/monologue/.jenkins/workspace/test # timeout=10
+Fetching upstream changes from https://github.com/Abunuo/vite-typescript.git/
+ > git --version # timeout=10
+ > git --version # 'git version 2.32.0 (Apple Git-132)'
+ > git fetch --tags --force --progress -- https://github.com/Abunuo/vite-typescript.git/ +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/Abunuo/vite-typescript.git/ # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 7ed388d5c0ff919385f01750dab15e8c8493c688 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 7ed388d5c0ff919385f01750dab15e8c8493c688 # timeout=10
+Commit message: "add QS package"
+ > git rev-list --no-walk 7ed388d5c0ff919385f01750dab15e8c8493c688 # timeout=10
+[test] $ /bin/sh -xe /var/folders/lh/z0j870196l7g41pb1k29h6nw0000gp/T/jenkins12881633553965850349.sh
++ export CI=false
++ CI=false
++ rm -rf node_modules
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 6, reused 6, downloaded 0, added 0
+Progress: resolved 14, reused 13, downloaded 0, added 0
+Progress: resolved 18, reused 18, downloaded 0, added 0
+Progress: resolved 21, reused 21, downloaded 0, added 0
+Progress: resolved 22, reused 22, downloaded 0, added 0
+Progress: resolved 23, reused 22, downloaded 0, added 0
+Progress: resolved 45, reused 45, downloaded 0, added 0
+Progress: resolved 77, reused 71, downloaded 0, added 0
+Progress: resolved 107, reused 101, downloaded 0, added 0
+Progress: resolved 125, reused 119, downloaded 0, added 0
+Progress: resolved 126, reused 119, downloaded 0, added 0
+Progress: resolved 153, reused 127, downloaded 0, added 0
+Progress: resolved 154, reused 127, downloaded 0, added 0
+ WARN  1 deprecated subdependencies found: @element-plus/icons@0.0.11
+Packages: +129
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 155, reused 129, downloaded 0, added 126
+Progress: resolved 155, reused 129, downloaded 0, added 129, done
+
+dependencies:
++ @sentry/tracing 7.112.2
++ @sentry/vue 7.112.2
++ axios 0.21.4 (1.6.8 is available)
++ element-plus 1.0.2-beta.71 (2.7.2 is available)
++ highcharts 9.3.3 (11.4.1 is available)
++ lodash 4.17.21
++ mitt 2.1.0 (3.0.1 is available)
++ qs 6.12.1
+
+devDependencies:
++ @types/lodash 4.17.0
++ @types/node 14.18.63 (20.12.7 is available)
++ @types/qs 6.9.15
++ @types/webpack-env 1.18.4
++ @vitejs/plugin-vue 1.10.2 (5.0.4 is available)
++ @vue/compiler-sfc 3.4.26
++ autoprefixer 10.4.19
++ cross-env 7.0.3
++ sass 1.75.0
++ typescript 4.9.5 (5.4.5 is available)
++ vite 2.9.18 (5.2.10 is available)
++ vite-plugin-sentry 1.4.0
++ vue 3.4.26
++ vue-router 4.3.2
++ vuex 4.1.0
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ element-plus 1.0.2-beta.71
+  └── ✕ unmet peer vue@3.1.x: found 3.4.26
+
+Done in 18.7s
++ pnpm build
+
+> vite-ts@0.0.1 build /Users/monologue/.jenkins/workspace/test
+> vite build && rm -rf dist/**/*.js.map
+
+[36mvite v2.9.18 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 874 modules transformed.
+rendering chunks...
+[90m[37m[2mdist/[22m[90m[39m[32massets/element-icons.9c88a535.woff  [39m [2m24.24 KiB[22m
+[90m[37m[2mdist/[22m[90m[39m[32massets/element-icons.de5eb258.ttf   [39m [2m49.19 KiB[22m
+[90m[37m[2mdist/[22m[90m[39m[32mindex.html                          [39m [2m0.42 KiB[22m
+[90m[37m[2mdist/[22m[90m[39m[36massets/index.1365864d.js            [39m [2m53.76 KiB / gzip: 18.50 KiB[22m
+[90m[37m[2mdist/[22m[90m[39m[90massets/index.1365864d.js.map        [39m [2m206.52 KiB[22m
+[90m[37m[2mdist/[22m[90m[39m[35massets/index.d23a8cb3.css           [39m [33m747.07 KiB / gzip: 83.29 KiB[39m
+[90m[37m[2mdist/[22m[90m[39m[36massets/index.3dd3860f.js            [39m [33m857.95 KiB / gzip: 274.05 KiB[39m
+[90m[37m[2mdist/[22m[90m[39m[90massets/index.3dd3860f.js.map        [39m [33m4025.88 KiB[39m
+[33m
+(!) Some chunks are larger than 500 KiB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/guide/en/#outputmanualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+> Found 4 files
+> Analyzing 4 sources
+> Rewriting sources
+> Adding source map references
+> Bundled 4 files for upload
+> Bundle ID: 9fdf9803-db65-5c39-8a52-1056d9d0213a
+> Nothing to upload, all files are on the server
+> File processing complete
+> Organization: abunuo
+> Project: vite-ts
+> Release: 1.0.0
+> Dist: None
+> Upload type: artifact bundle
+
+Source Map Upload Report
+  Scripts
+    ~/assets/index.1365864d.js (sourcemap at index.1365864d.js.map)
+    ~/assets/index.3dd3860f.js (sourcemap at index.3dd3860f.js.map)
+  Source Maps
+    ~/assets/index.1365864d.js.map
+    ~/assets/index.3dd3860f.js.map
+Finished: SUCCESS

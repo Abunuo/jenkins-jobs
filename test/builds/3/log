@@ -1,0 +1,24 @@
+Started by user [8mha:////4BD6S7qe0eceJcCBofcc7b+xcLUxPTP5MtncP8WVo19DAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /Users/monologue/.jenkins/workspace/test
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /Users/monologue/.jenkins/workspace/test/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Abunuo/vite-typescript.git/ # timeout=10
+Fetching upstream changes from https://github.com/Abunuo/vite-typescript.git/
+ > git --version # timeout=10
+ > git --version # 'git version 2.32.0 (Apple Git-132)'
+ > git fetch --tags --force --progress -- https://github.com/Abunuo/vite-typescript.git/ +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 7ed388d5c0ff919385f01750dab15e8c8493c688 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 7ed388d5c0ff919385f01750dab15e8c8493c688 # timeout=10
+Commit message: "add QS package"
+ > git rev-list --no-walk 7ed388d5c0ff919385f01750dab15e8c8493c688 # timeout=10
+[test] $ /bin/sh -xe /var/folders/lh/z0j870196l7g41pb1k29h6nw0000gp/T/jenkins11485695184573344132.sh
++ export CI=false
++ CI=false
+/var/folders/lh/z0j870196l7g41pb1k29h6nw0000gp/T/jenkins11485695184573344132.sh: line 4: syntax error near unexpected token `{'
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

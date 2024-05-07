@@ -1,0 +1,207 @@
+Started by user [8mha:////4BD6S7qe0eceJcCBofcc7b+xcLUxPTP5MtncP8WVo19DAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[8mha:////4M0IzII5jbj/RhWFR9ON4Rf4+VjL3ilvNieIak4S/4aWAAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4La1IvTqdC2GYRLomKDB0R9/EI7IkaPPT+pmYMrI5CJSAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4MmPSLE70VCP4mgN5JPZRLD8J/7km9/3ifnVuybR9ZXMAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /Users/monologue/.jenkins/workspace/pipeline
+[8mha:////4HJHg7/Hml9b8UiK/zET1SNC+kZaeHwYAsrdB0l2UO1TAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4IvCjoVy3w6WRYxcr0BTlg2H0HSEKeBREVDlqu2MPeAjAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] stage
+[8mha:////4GMbafHiUvMr7Z5FzcExIxWLF69LJGqlsY4jZP27XTAIAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] { (Declarative: Tool Install)
+[8mha:////4FDWwzQukQSb0MQBghbpzIMxm5cEPwKqCdMzPN+RSb89AAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbaWGsbAmNJ0AWEZb8zwLrbuWJvJp3kLiJlZNMMm+a93rDOic4UbLcG+wdZu14DKOti0+U+lugiXu6ck2YKRguzSSpM+cFJRUDS1gDKwEbgzpQdmgLbIVXD9UGhba9lFS/o4DGdQM8gYlqLiqVL8wJdvexy4Q/z18BzLEA29ce4gfg7KmOvAAAAA==[0m[Pipeline] tool
+[8mha:////4O/Hd8UWPOy9CdSNVQiL4SDxm9+9z+FLHmD+FzwYWrIRAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbGRNjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI4F2L72ED8v8DEJvAAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4EL85exK1X74+bYR+DZ6BO4vR4mCqurdMsZZJHSVF22+AAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbmRhjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI6xADvU7j/zqggXvAAAAA==[0m[Pipeline] }
+[8mha:////4FtexIJMPikFoxGEgjBuIm0XEPghnQvBRUx6IozV8wLhAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiJoYeVY2WZoPEGEGAOZXUwWofJEXs07yMiMlb/67zXv9cYyRRw5OtVYaj2lyqsu9G56auDYXgMPquGLqpgSB6tKO5Rc29OMJYvFvCzHQmNlqQqcPDnBWjfmYYpgyBVniZM7aOS+vuOJTE9lMVG+MEZsbn2dmH6dvwGMXSfId1tBtv8AExtCpb0AAAA=[0m[Pipeline] // stage
+[8mha:////4DEpt6rONyk6+Ar5UMq6RCY+q83xcCDB3M04bvILbFHcAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BKWgpeYSjSHSIitZywwtMbIwT6y7YF5KKF/E1/oAhEhVb7ay0mucLqhThQNGJzmLvMbVeDGF0uYmJYn8JNImOzqIlTBSsUHZSZOxxQUVsYUlRwkrC2mIbKHl0DBvZ6buug0ZXnzjmbS+h9OYGDyhkNrOO/IU5wvY6mkT48/wVwDwwFDuGsmk+x+oNEzd2msEAAAA=[0m[Pipeline] withEnv
+[8mha:////4OZwSX+P+Zi/kwxhYyQkenC4kJjstf++lQGHflmAW8YYAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUZUVMrFEWThCaEJJG/7dJSjpxIq7GHWipxIQHy7ZkvdcbqhjgRMEwp7GzGFvLej+aObFMobt5yszRlbWEkbxmQmdBSp/XKihpWFWUsOGw1dh6ihZNgh138iFrL9HUlxTm7cihtGqAJxR8JicZ0rdMAfb3UUXCH+cvAKY+Qdk0ix2WZ/UBbwyqm8IAAAA=[0m[Pipeline] {
+[8mha:////4MWKHLDOk7ZEcBFtq2FL7C3dyQpYPHfJmwGfs6gsM2RRAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLdfrbD/Cw+y7kUycIAAAA=[0m[Pipeline] stage
+[8mha:////4APBafrDTenM8wbnggnnA2dwb/HApkNzpsIhMG9PTvmJAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUCDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxAbNWnxXCAAAA[0m[Pipeline] { (prepare)
+[8mha:////4GyuZX5qedSfyIuX9RITcJIdWf4wA33aaZ7uvqTY5/4AAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJKgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUG53n9qHN8W7Eii+AAAA[0m[Pipeline] tool
+[8mha:////4Nzl/1JbPaWuVhRVRjVq42FhmUAxrraoPqgW6e0Hr1yaAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJESDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAEG6D8DvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4FCloJ/uWhtux5gPmkczCe0K567eTF2cHpqqjD7FXyeiAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUSEgMiKlrlIUThCaEtNH/5SelnTgRV+MOtFRiwoNlW7Le6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gOeMTC6wgAAAA==[0m[Pipeline] withEnv
+[8mha:////4LHMjYzUqhjWiNzDPFhMFaEYQ50qQe/F2rQEUjqoR1o3AAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUTCAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0rlhNLCAAAA[0m[Pipeline] {
+[8mha:////4J31z3zDVPJm4jb472hSpalTt76l5sKiZL6f+4aIx2bQAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiOhCiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyu3uU/vwBr2eB0O+AAAA[0m[Pipeline] sh
++ pnpm -v
+9.1.0
+[8mha:////4CG6f/CdbMC03XAwo3ctIQkgOPlGKUeFdJbsGOdY/KHKAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICVEgoFa3lhheYxBgn1l2wHZyKF/E1/oBFJCq2WO1sM683LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDREKHeHXPvt8AGtm4OQvgAAAA==[0m[Pipeline] checkout
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/Abunuo/vite-typescript.git
+ > git init /Users/monologue/.jenkins/workspace/pipeline # timeout=10
+Fetching upstream changes from https://github.com/Abunuo/vite-typescript.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.32.0 (Apple Git-132)'
+ > git fetch --tags --force --progress -- https://github.com/Abunuo/vite-typescript.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/Abunuo/vite-typescript.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 7ed388d5c0ff919385f01750dab15e8c8493c688 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 7ed388d5c0ff919385f01750dab15e8c8493c688 # timeout=10
+Commit message: "add QS package"
+[8mha:////4AVipA3ca5fYfbuyWNY3JXdmfqWd9Az8hJhPFMkYrv/fAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiUCEhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJyj3da768AGz5oXivgAAAA==[0m[Pipeline] }
+[8mha:////4Dsw882U+xIG7Papk7DDYrjkYOVTBxI9PjPLcpF8VnQDAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIRaSgQVVorDS8w8WGcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThyM6JEGS7GzwrvR5CUmDsPV8SR6voiOKbJD0eLUssZmwZYTwpKihJWEDVLnOFoyCbayVw9VOUWmOqeQv6OE0uo7PKGQ2ZxUSF+YA+xuo45MP89fAczeJyjrOtf+8AGMia70vgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4Pk041HJuOd8ybL93jZ+qPojlLjp5XF9g6f4KXQ4jrOUAAAApR+LCAAAAAAAAP9tjTsOwjAQRDdBFLSUHGIjPh1KRWu54QQmMcaJtRtsB6fiRFyNO2ARiYopRvOmea83LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcrdPtf28AGTC/umvgAAAA==[0m[Pipeline] }
+[8mha:////4HUPJ5CrZf2DZ+3QABXpZobh+HsDqiX9AeImJdfc6zISAAAApR+LCAAAAAAAAP9tjTsOwjAQRDdBFLSUHGIjPh1KRWu54QQmMcaJtRtsB6fiRFyNO2ARiYopRvOmea83LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcrdIdd2/wGIrpolvgAAAA==[0m[Pipeline] // stage
+[8mha:////4Lk8zhGdYskwRail3JhqJz8/61OgJHY9u71RuEOvABZJAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUVGJCTF2jLJwgJCGkjf4vSUo7cSKuxh0IVGLCg2Vbst7zBVUMcKRgWWewdxiVY4MfbU5sotBfPE2sozNThJG8YcJMgrRplyooGVhUlLDisDaoPEWHNsGGd/Iuay/R1qcU8nbgUDp9gwcUPJOTDOlb5gDb66gj4Y/zFwDzkKDcNdma/edZvQFLQKUuwgAAAA==[0m[Pipeline] stage
+[8mha:////4OrVMT8WoEY0dcHXnJq8vgCb5UjAXY2WyzeyfYHFAos8AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUQoIFMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfACW9ZT2wgAAAA==[0m[Pipeline] { (Github)
+[8mha:////4IOXLGruiL8n4ijPCIuJxMJ8UHSnGBMq/HRyOWlNxOysAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiUUCBqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAHUcXIBvgAAAA==[0m[Pipeline] tool
+[8mha:////4LWmSNCpXZUFTTLC/PbUC/JCCpP0R+4zi+n+n0S/G/yIAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiUSAkRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYMpTb3af24Q0bbeqGvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4Mfuh4aSSyqp46dE7YUxTI9+rGFOL/3n32aKaqIzLPOYAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYkBCiKlrlIUThCaEtNH/5SelnTgRV+MOtFRiwoNlW7Le6w1FZDgRO9FYbD3G2osu9G5KYiBur4EG0dBF1ISRghXKDoqMrZaqKFlYlOWwkrC2WAeKHl2CjWz0Q5dBoyvPiaftKCH35g5PyORETprTt4wM21tvIuGP8xcAY5cg3+1nO8zP4gNCISCewgAAAA==[0m[Pipeline] withEnv
+[8mha:////4Ib40hYML+7J6Iv7LwIFH/wxji+qe2Cn4KE4SqvWkfbDAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUwYRQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3+2y7zedZvQH4j6CMwgAAAA==[0m[Pipeline] {
+[8mha:////4PJ+vUsoRTX/HSHdRqbssyHaNrFAid3QNm6c1yrTzVP8AAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICokRUaS03vMDExjix7oztkFS8iK/xBwKRqNhitbPNPF+wTBGOHC22hjpHqXEYfG+nhQPH7uJ5wJbP2DAl9galGSRrU88oORuYU5SwELAy1HhOjmyGtWjVXVVeka1OOU7fQUDp9A0eUIjJnFXMXxgjbK69Tkw/z18BjCFDud9+ahfewYmQ+b4AAAA=[0m[Pipeline] sh
++ git switch master
+Switched to a new branch 'master'
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+[8mha:////4CalLXhASfLSFQtMFi8I1cVQQxq6bpG63MIYlWytcQK4AAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCoERUaS03vMDExjix7oztkFS8iK/xBwKRqNhitbPNPF+wTBGOHC22hjpHqXEYfG+nhQPH7uJ5wJbP2DAl9galGSRrU88oORuYU5SwELAy1HhOjmyGtWjVXVVeka1OOU7fQUDp9A0eUIjJnFXMXxgjbK69Tkw/z18BjCFDud9+ahfeAtq90r4AAAA=[0m[Pipeline] sh
++ git pull
+Already up to date.
+[8mha:////4Fm/tjyt3MmxA9joeCpv1IeWOwGBvAcezczdg8E7+uqjAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKClBJR0VppeIFJjLFj3Tm2g1PxIr7GHwhEomKL1c4283zBOgY4ctBoFfWGYmvQu1HPCzOH/uo4o+ULtkyRncJG5YY7dVqw4aRgSVHCSsBGUes4GtIJtsLKu6ycJF2dU5i/g4DSdAM8oBCzOcmQvjAF2N3GLjL9PH8FMPkEZb3/VO3fQ+umy74AAAA=[0m[Pipeline] sh
++ '[' v1.0.1 '!=' '' ']'
++ echo 'build tag···'
+build tag···
++ git tag v1.0.1 -m 'jenkins build tag'
++ git tag --list
+v1.0.0
+v1.0.1
+[8mha:////4NZy/xdg4iDIGmRMIVX9NAbDZZUg5dpbW1cXS2B3OcMUAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCBB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7nbf2r7BgSW0ii+AAAA[0m[Pipeline] }
+[8mha:////4P4Ng7uswcOcwsO43fMh8a7WM5qIJgrUwbc/E61nZNo3AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigSgQSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryt8+1PXwARMxJg74AAAA=[0m[Pipeline] // withEnv
+[8mha:////4I04OjbZBb38U3Q2OCoqO0pN6oXvPGW8V5dlhvlxPAbqAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigZQGUaW10vACExvjxLoztkNS8SK+xh+wiETFFqudbeb1hnUMcOJgsNc0WIqdRe9GkxdOHIar4wl7vmDHFNlpbPXUstLNgi0nDUuKElYCNpo6x9GSSbAVvXzIykky1TmF/B0FlFbd4QmFyOYkQ/rCHGB3G1Vk+nn+CmD2PkF5qHPt6w97o2KVvgAAAA==[0m[Pipeline] }
+[8mha:////4DeOkaOshEubU3tCh3jVhDYNEkJuyjYKWvLQZvLnjCmJAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigRAFSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryd8i13X8AZCE3x74AAAA=[0m[Pipeline] // stage
+[8mha:////4HteqBg618DeeeWLQ1u0GFf3wObprRxCeUrj5/AlwQysAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIKEOrFGXThBaEJIGv1fkpR04kRcjTsQqMSEB8u2ZL3nC6rgoSGvmVXYGwydYYMbdU4ske8vjhKzdGYdYSCnWKtSS1Id59pSVDCrKGHBYamwcxQM6ggrbsVd1E6grk/R5+3AoTTyBg8oeCZH4eO3TB7W11EGwh/nLwCmIUK52Wbb7T/P6g0hWEw0wgAAAA==[0m[Pipeline] stage
+[8mha:////4DMHbtfgeMrg2r2Djq7YMt9VSMLNAOwOEhYqGHN+11RsAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0YAEhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD59NhPHCAAAA[0m[Pipeline] { (build)
+[8mha:////4EuXQEQNAapAu7d2dOqQUJUPjRsrRWD6aBgf1K0cIK8bAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCBA1CqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKYhQrk75Npvhw/W61xwvgAAAA==[0m[Pipeline] tool
+[8mha:////4CqfqcM4ZeTVa6pI8OEQIvvFCoKJiZc4zh2t7plsnC/7AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiBA1CqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKYhQrk75Npvhw+X2kdpvgAAAA==[0m[Pipeline] envVarsForTool
+[8mha:////4C76Z5RT7GM4HT1hC9kMK1vIaV2pNiln5akO4h7oORVaAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUAhaEOrFGXThBaEJIGv1fkpR04kRcjTsQqMSEB8u2ZL3nC6rgoSGvmVXYGwydYYMbdU4ske8vjhKzdGYdYSCnWKtSS1Id59pSVDCrKGHBYamwcxQM6ggrbsVd1E6grk/R5+3AoTTyBg8oeCZH4eO3TB7W11EGwh/nLwCmIUK53WfbbT7P6g0SXGqfwgAAAA==[0m[Pipeline] withEnv
+[8mha:////4GyelzP1ZgGOArGkb7iw7hGSc3HlH3frA3wLqi02otI+AAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUAjbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAXzhjwPCAAAA[0m[Pipeline] {
+[8mha:////4AlUA9kCrbiBoZl9kuzS1Dy56ivTAfWh0lt07pqORduKAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSkA5R0VppeIFJjLFj3Tm2g1PxIr7GHwhEomKL1c4283zBOgY4ctBoFfWGYmvQu1HPCzOH/uo4o+ULtkyRncJG5YY7dVqw4aRgSVHCSsBGUes4GtIJtsLKu6ycJF2dU5i/g4DSdAM8oBCzOcmQvjAF2N3GLjL9PH8FMPkEZb3/VO3fhXiFur4AAAA=[0m[Pipeline] sh
++ rm -rf node_modules
+[8mha:////4CgIFi0jtED2dt2Z4uqSj6gkxDaFUEb9ltZdVH/jG0RlAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSABWiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyt32U/vwBsRJnqO+AAAA[0m[Pipeline] sh
++ pnpm install
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 10, reused 3, downloaded 1, added 0
+Progress: resolved 14, reused 8, downloaded 2, added 0
+Progress: resolved 16, reused 10, downloaded 3, added 0
+Progress: resolved 19, reused 12, downloaded 3, added 0
+Progress: resolved 20, reused 13, downloaded 6, added 0
+Progress: resolved 21, reused 13, downloaded 6, added 0
+Progress: resolved 21, reused 14, downloaded 6, added 0
+Progress: resolved 22, reused 15, downloaded 7, added 0
+Progress: resolved 23, reused 15, downloaded 7, added 0
+Progress: resolved 39, reused 29, downloaded 7, added 0
+Progress: resolved 42, reused 31, downloaded 9, added 0
+Progress: resolved 44, reused 31, downloaded 9, added 0
+Progress: resolved 47, reused 32, downloaded 12, added 0
+Progress: resolved 64, reused 45, downloaded 13, added 0
+Progress: resolved 106, reused 60, downloaded 16, added 0
+Progress: resolved 128, reused 77, downloaded 18, added 0
+Progress: resolved 134, reused 87, downloaded 18, added 0
+Progress: resolved 135, reused 88, downloaded 20, added 0
+Progress: resolved 136, reused 88, downloaded 20, added 0
+Progress: resolved 137, reused 88, downloaded 21, added 0
+Progress: resolved 137, reused 88, downloaded 22, added 0
+Progress: resolved 138, reused 88, downloaded 22, added 0
+Progress: resolved 141, reused 89, downloaded 22, added 0
+Progress: resolved 143, reused 89, downloaded 25, added 0
+Progress: resolved 146, reused 92, downloaded 25, added 0
+Progress: resolved 146, reused 92, downloaded 27, added 0
+Progress: resolved 146, reused 92, downloaded 28, added 0
+Progress: resolved 147, reused 92, downloaded 28, added 0
+Progress: resolved 150, reused 96, downloaded 28, added 0
+Progress: resolved 151, reused 96, downloaded 28, added 0
+Progress: resolved 151, reused 96, downloaded 29, added 0
+Progress: resolved 152, reused 96, downloaded 29, added 0
+ WARN  1 deprecated subdependencies found: @element-plus/icons@0.0.11
+Packages: +129
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 155, reused 100, downloaded 29, added 126
+Progress: resolved 155, reused 100, downloaded 29, added 129, done
+.../node_modules/@sentry/cli postinstall$ node ./scripts/install.js
+.../node_modules/@sentry/cli postinstall: Done
+
+dependencies:
++ @sentry/tracing 7.113.0
++ @sentry/vue 7.113.0
++ axios 0.21.4 (1.6.8 is available)
++ element-plus 1.0.2-beta.71 (2.7.2 is available)
++ highcharts 9.3.3 (11.4.1 is available)
++ lodash 4.17.21
++ mitt 2.1.0 (3.0.1 is available)
++ qs 6.12.1
+
+devDependencies:
++ @types/lodash 4.17.1
++ @types/node 14.18.63 (20.12.10 is available)
++ @types/qs 6.9.15
++ @types/webpack-env 1.18.5
++ @vitejs/plugin-vue 1.10.2 (5.0.4 is available)
++ @vue/compiler-sfc 3.4.27
++ autoprefixer 10.4.19
++ cross-env 7.0.3
++ sass 1.77.0
++ typescript 4.9.5 (5.4.5 is available)
++ vite 2.9.18 (5.2.11 is available)
++ vite-plugin-sentry 1.4.0
++ vue 3.4.27
++ vue-router 4.3.2
++ vuex 4.1.0
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ element-plus 1.0.2-beta.71
+  └── ✕ unmet peer vue@3.1.x: found 3.4.27
+
+Done in 50.8s
+[8mha:////4HkR9k0erSGX7rXOAbnfuu7D8ag8Rj4EWL4yObBXLcI+AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSgGgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUO62n9qHNwcas4i+AAAA[0m[Pipeline] sh
++ pnpm build
+
+> vite-ts@0.0.1 build /Users/monologue/.jenkins/workspace/pipeline
+> vite build && rm -rf dist/**/*.js.map
+
+[36mvite v2.9.18 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 874 modules transformed.
+rendering chunks...
+[90m[37m[2mdist/[22m[90m[39m[32massets/element-icons.9c88a535.woff  [39m [2m24.24 KiB[22m
+[90m[37m[2mdist/[22m[90m[39m[32massets/element-icons.de5eb258.ttf   [39m [2m49.19 KiB[22m
+[90m[37m[2mdist/[22m[90m[39m[32mindex.html                          [39m [2m0.42 KiB[22m
+[90m[37m[2mdist/[22m[90m[39m[36massets/index.bd8fea8b.js            [39m [2m53.76 KiB / gzip: 18.50 KiB[22m
+[90m[37m[2mdist/[22m[90m[39m[90massets/index.bd8fea8b.js.map        [39m [2m206.52 KiB[22m
+[90m[37m[2mdist/[22m[90m[39m[35massets/index.d23a8cb3.css           [39m [33m747.07 KiB / gzip: 83.29 KiB[39m
+[90m[37m[2mdist/[22m[90m[39m[36massets/index.ffca74e6.js            [39m [33m857.95 KiB / gzip: 274.05 KiB[39m
+[90m[37m[2mdist/[22m[90m[39m[90massets/index.ffca74e6.js.map        [39m [33m4025.89 KiB[39m
+[33m
+(!) Some chunks are larger than 500 KiB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/guide/en/#outputmanualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+> Found 4 files
+> Analyzing 4 sources
+> Rewriting sources
+> Adding source map references
+> Bundled 4 files for upload
+> Bundle ID: 10e16021-1e17-547a-8d46-259fddf7acae
+> Uploaded files to Sentry
+> File upload complete (processing pending on server)
+> Organization: abunuo
+> Project: vite-ts
+> Release: 1.0.0
+> Dist: None
+> Upload type: artifact bundle
+
+Source Map Upload Report
+  Scripts
+    ~/assets/index.bd8fea8b.js (sourcemap at index.bd8fea8b.js.map)
+    ~/assets/index.ffca74e6.js (sourcemap at index.ffca74e6.js.map)
+  Source Maps
+    ~/assets/index.bd8fea8b.js.map
+    ~/assets/index.ffca74e6.js.map
+[8mha:////4MUQmjX2/TAg6xHTQcTVtww0kMbCNRr44jzmLX3HZ2QBAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSgESBqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFDu9p/avgFZHam9vgAAAA==[0m[Pipeline] }
+[8mha:////4Oj6oSKlel5RpmWDcpv1CCltUpKwop/EnchM8bjhx9ngAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiIQokRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYQoZyt//U9g0an/g7vgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4Ow7st9xKgC87ly0mL6B2cZetHqJhi/Mwj6Hng4vmiabAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSQBMhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJygPda59/QHwAzcovgAAAA==[0m[Pipeline] }
+[8mha:////4IcGR07ma6wMl0D9OQYCswb9cUFzQd/UQmgZCq3k4XmmAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKChJCQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKU+22u3eEDGmlI3r4AAAA=[0m[Pipeline] // stage
+[8mha:////4Ft1gQd6WE86so/CX4E5QFyhcCP9AWQFSaC5oZCe0aU9AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiIFEhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJygPda56/wEjMffHvgAAAA==[0m[Pipeline] }
+[8mha:////4ITuIOOylu9KEht67/+whvBJEahxnWWsafSgXy2zy+JrAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiIFEhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJygP+1x1/QE3EmrYvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4OOUwQi3zaLT/p+JcTo5AXDyvsq8oWx4bCKGLMXgs/k0AAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiIUauVY2WZoPEGEGAOZXUwWofJEXs07yMiMlb/67zXv9cYyRRw5OtVYaj2lyqsu9G56auDYXgMPquGLqpgSB6tKO5Rc29OMJYvFvCzHQmNlqQqcPDnBWjfmYYpgyBVniZM7aOS+vuOJTE9lMVG+MEZsbn2dmH6dvwGMXSfI91tBtvsAQxN0Dr0AAAA=[0m[Pipeline] }
+[8mha:////4JGeORoO/8RoFqGjEfnUw1DpTv7oMemhqTiyLJGeGiGLAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiIUauVY2WZoPEGEGAOZXUwWofJEXs07yMiMlb/67zXv9cYyRRw5OtVYaj2lyqsu9G56auDYXgMPquGLqpgSB6tKO5Rc29OMJYvFvCzHQmNlqQqcPDnBWjfmYYpgyBVniZM7aOS+vuOJTE9lMVG+MEZsbn2dmH6dvwGMXSfI9ztBtv0A8FowIr0AAAA=[0m[Pipeline] // node
+[8mha:////4A5hbVU+7LTd30sfK0CQ8cWfSmV4O7Hs7OafgZH/ZrK3AAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6IkJkzGybVh8Qsq1Fpo3sP2IUx+kb/mP0gkcfJO95zlvN5Yp4gjR6daS52nVHvVh8HNT40cu2vgUbV8UTVT4mBVZceKG3tasGKxWJblWGlsLNWBkycn2OrWPEwRDLniLHF2B43cN3c8kem5LCbKF6aI3W1oEtOv8zeAqe8FeVkKsv0H1kNXaL0AAAA=[0m[Pipeline] End of Pipeline
+Finished: SUCCESS
