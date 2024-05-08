@@ -1,0 +1,624 @@
+/**
+ * @description: jenkins pipeline 真实案例（部分）
+ */
+
+// import com.mind.jenkins.pipeline.utils.BuildConfig
+
+def call() {
+  // properties([
+  //   parameters([
+  //     string(defaultValue: '', description: '', name: 'COMMIT', trim: false),
+  //     string(defaultValue: 'pre-release', description: '', name: 'BRANCH', trim: false),
+  //     choice(choices: ['mind-pre', 'mind-pro', 'mind-dev'], description: '选择发布环境,默认pre', name: 'ENV'),
+  //     choice(choices: ['pre-release', 'release'], description: '选择分支,默认pre-release', name: 'BRANCH'),
+  //   ])
+  // ])
+  dockerNode.nodejsBuildDocker {
+    BuildConfig buildConfig
+    boolean isSuccess = false
+    def causes = currentBuild.getBuildCauses()
+    def buildUser = causes[0]?.userId ?: 'Unknown'
+    echo "Build User: ${buildUser}"
+    try {
+      // agent {
+      // node {
+      // label 'jenkins-slave'
+      // }
+      // }
+      // confirm before start pipeline
+      if ("${ENV}" == "mind-pro"){
+        stage('部署生产之前二次确认') {
+          input(message: "确定发布环境 ${ENV} 的 ${BRANCH}分支？", ok: 'Continue')
+        }
+      }
+      // sync code
+      stage('准备拉取代码') {
+        //checkout scm
+        checkout([
+          $class : 'GitSCM',
+          branches : [[name: BRANCH]],
+          userRemoteConfigs: scm.userRemoteConfigs
+        ])
+      }
+      echo "当前发布环境：${ENV}, 当前发布分支：${BRANCH} "
+      String appname = jobUtil.getAppNameFromJob()
+      echo "当前服务名：${appname}"
+      Object commitInfo = jobUtil.getCommitInfo()
+      String imageAddr = jobUtil.getImageAdd(ENV)
+      String imageName
+      String coskey
+      String nodejsVersion
+      if (params.nodejsVersion == null){
+        nodejsVersion = "nodejs-v14"
+      }else{
+        nodejsVersion = params.nodejsVersion
+      }
+      String buildType = params.buildType
+      stage('安装npm依赖') {
+        // sh 'export process.env.CI=false'
+        // String buildType = params.buildType
+        nodejs(nodejsVersion){
+          echo "当前node版本：${nodejsVersion}"
+          // check node version
+          if (appname == "mind-open-platform-admin"){
+            echo "npm本地仓库跳过：${appname}"
+          } else {
+            sh 'npm config set registry http://10.0.2.8:4873/;'
+          }
+          // install
+          if (appname == "mind-people-admin"){
+            sh 'npm install --legacy-peer-deps'
+          }else if (appname == "mind-pc-web"){
+            if (buildType != null && buildType == "onlyUpgradeTips"){
+              return
+            }else{
+              sh 'pnpm install'
+            }
+          }else if (appname == "mind-sso-web" || appname == "mind-open-platform-admin"){
+            sh 'pnpm install'
+          }else if (appname == "mind-approval-web"){
+            sh 'rm -rf node_modules'
+            sh 'yarn install;'
+          } else{
+            sh 'npm install'
+          }
+          // build
+          if(appname == "mind-data"){
+            if(params.ENV == "mind-pre"){
+              sh 'npm run build:pre -- --env.CI=false'
+            }else{
+              sh 'npm run build:prod -- --env.CI=false'
+            }
+          } else if (appname == "mind-links"){
+            if(params.ENV == "mind-pre"){
+              sh 'sh ./patch-version.sh pre_release'
+              sh 'npm run generate:pre'
+            }else if (params.ENV == "mind-pro"){
+              sh 'sh ./patch-version.sh release'
+              sh 'npm run generate'
+            }else{
+              sh 'npm run generate'
+            }
+          }else if (appname == "mind-people-web"){
+            if(params.ENV == "mind-pre"){
+              sh 'sh ./patch-version.sh pre-release'
+              sh 'npm run build:pre -- --env.CI=false'
+            }else if (params.ENV == "mind-pro"){
+              sh 'sh ./patch-version.sh release'
+              sh 'npm run build:prod -- --env.CI=false'
+            }else{
+              sh 'echo 1'
+            }
+          }else if (appname == "mind-doc-for-shimo"){
+            if(params.ENV == "mind-pre"){
+              sh 'sh ./patch-version.sh pre-release'
+              sh 'npm run build:pre'
+            }else if (params.ENV == "mind-pro"){
+              sh 'sh ./patch-version.sh release'
+              sh 'npm run build:prod'
+            }else{
+              sh 'npm run build:test'
+            }
+            // sh 'npm run build:classic'
+            sh 'cp -r _dist/* dist/'
+            sh 'rm -fr build'
+            sh 'mkdir build'
+            sh 'cp -fr dist/* build'
+          }else if (appname == "mind-doc-common-web"){
+            sh 'npm ci --no-optional;'
+            if(params.ENV == "mind-pre"){
+              sh 'sh ./patch-version.sh pre-release'
+              sh 'npm run build:pre'
+            }else if (params.ENV == "mind-pro"){
+              sh 'sh ./patch-version.sh release'
+              sh 'npm run build:prod'
+            }else{
+              sh 'npm run build:test'
+            }
+          }else if (appname == "mind-team-admin"){
+            if(params.ENV == "mind-pre"){
+              sh 'sh ./patch-version.sh pre-release'
+              sh 'npm run build:pre -- --env.CI=false'
+            }else if (params.ENV == "mind-pro"){
+              sh 'sh ./patch-version.sh release'
+              sh 'npm run build:prod -- --env.CI=false'
+            }else{
+              echo "pass"
+              sh 'npm run build -- --env.CI=false'
+            }
+          }else if (appname == "mind-people-admin"){
+            if(params.ENV == "mind-pre"){
+              sh 'sh ./patch-version.sh pre-release'
+              sh 'npm run build:pre -- --env.CI=false'
+            }else if (params.ENV == "mind-pro"){
+              sh 'sh ./patch-version.sh release'
+              sh 'npm run build:prod -- --env.CI=false'
+            }else{
+              echo "pass"
+              sh 'npm run build -- --env.CI=false'
+            }
+          }else if (appname == "mind-notes-mymind"){
+            if(params.ENV == "mind-pre"){
+              sh 'npm run build:pre'
+            }else if (params.ENV == "mind-pro"){
+              sh 'npm run build:prod'
+            }else{
+              sh 'npm run build:test'
+            }
+            sh 'rm -fr build'
+            sh 'mv dist build'
+          }else if (appname == "mind-approval-web"){
+            if(params.ENV == "mind-pre"){
+              sh 'sh ./patch-version.sh pre-release'
+              sh 'npm run build:pre'
+            }else if (params.ENV == "mind-pro"){
+              sh 'sh ./patch-version.sh release'
+              sh 'npm run build:prod'
+            }else{
+              sh 'npm run build:test'
+            }
+            sh 'rm -fr build'
+            sh 'mv dist build'
+          }else if (appname == "mind-sso-web"){
+            if(params.ENV == "mind-pre"){
+              sh 'pnpm run build:pre'
+            }else if (params.ENV == "mind-pro"){
+              sh 'pnpm run build:prod'
+            }else{
+              sh 'pnpm run build'
+            }
+          }else if (appname == "mind-pc-web"){
+            if(params.ENV == "mind-pre"){
+              sh 'pnpm run build:pre'
+            }else if (params.ENV == "mind-pro"){
+              sh 'sh ./patch-version.sh release'
+              sh 'pnpm run build:prod'
+            }else{
+              sh 'pnpm run build'
+            }
+          }else if (appname == "mind-open-platform-admin"){
+            if(params.ENV == "mind-pre"){
+              sh 'sh ./patch-version.sh pre_release'
+              sh 'pnpm run build:pre'
+            }else if (params.ENV == "mind-pro"){
+              sh 'sh ./patch-version.sh release'
+              sh 'pnpm run build:prod'
+            }else{
+              sh 'pnpm run build'
+            }
+          }else{
+            if(params.ENV == "mind-pre"){
+              sh 'npm run build:pre -- --env.CI=false'
+            }else if (params.ENV == "mind-pro"){
+              sh 'npm run build:prod -- --env.CI=false'
+            }else{
+              sh 'npm run build -- --env.CI=false'
+            }
+          }
+          archiveArtifacts artifacts: 'build/**', allowEmptyArchive: true
+        }
+      }
+      stage('构建镜像') {
+        parallel 'docker': {
+          if (buildType != null && buildType == "onlyUpgradeTips"){
+            echo "onlyUpgradeTips模式跳过此步骤"
+            return
+          }
+          echo "Build docker image..."
+          imageName = "${imageAddr}/${appname}:${commitInfo.version}"
+          sh '''sed -i "/FROM openresty/a RUN sed -i 's/https/http/' /etc/apk/repositories" ./deploy/Dockerfile'''
+          dockerfile = "./deploy/Dockerfile"
+          currentBuild.description = "发布环境: ${ENV} \n分支名称: ${BRANCH} \n发布用户: ${buildUser} \n镜像版本号: ${commitInfo.version}"
+          script {
+            // 使用 shell 命令检查镜像是否存在
+            def imageExists = sh(script: "docker image ls ${imageAddr}/${appname} | grep ${commitInfo.version} || true", returnStdout: true).trim()
+            if (imageExists) {
+              echo '镜像已存在，跳过构建'
+            } else {
+              // 构建 Docker 镜像
+              jobUtil.buildDockerImage(dockerfile, "", "nodejs", imageName,"")
+            }
+          }
+        },
+        cos: {
+          echo "构建文件上传COS中..."
+        }
+      }
+      stage('单元测试') {
+        echo "单元测试中...."
+      }
+      stage('质量检测') {
+        echo "SonarScanner质量检查扫描中...."
+      }
+      stage('应用部署') {
+        if (buildType != null && buildType == "onlyUpgradeTips"){
+          echo "onlyUpgradeTips模式跳过此步骤"
+          return
+        }
+        echo "Build success, Now Callback Cd..."
+        String env = params.ENV
+        if ( appname == "mind-job-server" ){
+          jobUtil.createBananaBuild(appname, "sts", env, buildUser, coskey, imageName, commitInfo, params.BRANCH)
+        }else if (appname == "mind-sync-server" ){
+          jobUtil.createBananaBuild(appname, "cron", env, buildUser, coskey, imageName, commitInfo, params.BRANCH)
+        }else{
+          jobUtil.createBananaBuild(appname, "deploy", env, buildUser, coskey, imageName, commitInfo, params.BRANCH)
+        }
+      }
+      stage('预热CDN缓存') {
+        if (buildType != null && buildType == "onlyUpgradeTips"){
+          echo "onlyUpgradeTips模式跳过此步骤"
+          return
+        }
+        echo "Start PreHeat CDN ..."
+        String env = params.ENV
+        jobUtil.preHeatUrls(appname,env)
+        sh "sleep 30"
+        // echo "CDN 预热暂时关闭"
+      }
+    } finally {
+      try {
+        stage('通知') {
+          echo "通知工作群..."
+          isSuccess = currentBuild.result  null || currentBuild.result  'SUCCESS'
+          String branch = params.BRANCH
+          String env = params.ENV
+          notifyUtil.notifyApp(jobUtil.getRepoName(), branch, env, isSuccess, buildUser)
+          String buildType = params.buildType
+          if (buildType != null && (buildType == "all" || buildType == "onlyUpgradeTips")){
+            switch(env) {
+              case "mind-pre":
+                sh "curl -X POST https://premind.im30.net/api/versionManage/webUpgrade"
+                break
+              case "mind-pro":
+                sh "curl -X POST https://mind.im30.net/api/versionManage/webUpgrade"
+                break
+            }
+          }
+        }
+      } catch (err) {
+        echo err.getMessage()
+      }
+      // deleteDir()
+    }
+  }
+}
+
+def getRepoName() {
+  String name = env.JOB_NAME
+  if (name.startsWith("REPO_")) {
+    int idx = name.indexOf("/")
+    return name.substring(5, idx)
+  } else if (name.startsWith("DIFF_")) {
+    return name.substring(5)
+  } else if (name.startsWith("FEREPO_")) {
+    int idx = name.indexOf("/")
+    return name.substring(7, idx)
+  } else if (name.startsWith("Mind-")) {
+    return name.substring(4)
+  } else if (name.startsWith("GITLAB_")) {
+    return name.substring(7)
+  }
+  return name
+}
+
+def getBranchName() {
+  if (isGitlab()) {
+    return getGitLabBranchName()
+  }
+  return env.BRANCH_NAME
+}
+
+def getGitLabBranchName() {
+  return env.gitlabBranch
+}
+
+def isDiff() {
+  String name = env.JOB_NAME
+  return name.startsWith("DIFF_") && !!(params.DIFF_ID?.trim())
+}
+
+def isAPP() {
+  String name = env.JOB_NAME
+  return name.startsWith("mind-") || name.startsWith("app-")
+}
+
+def isREPO() {
+  String name = env.JOB_NAME
+  return name.startsWith("REPO_")
+}
+
+def isGitlab() {
+  String name = env.JOB_NAME
+  return name.startsWith("GITLAB_")
+}
+
+def isGitlabMR() {
+  // TODO 监听 note 事件，实现评论 MR 重新触发 DIFF 构建
+  String actionType = env.gitlabActionType
+  return actionType == "MERGE"
+}
+
+def isFEREPO() {
+  String name = env.JOB_NAME
+  return name.startsWith("FEREPO_")
+}
+
+def getAppNameFromJob() {
+  String name = env.JOB_NAME
+  if (name.startsWith("mind-")) {
+    return name
+  }
+  if (name.startsWith("app-")) {
+    return name.substring(4)
+  }
+  return ''
+}
+
+def getCommitInfo() {
+    Object info = {}
+    commitAt = sh(script: "git log -1 --pretty=format:%ct HEAD", returnStdout: true).trim().toLong()
+    info.commitat = new Date(commitAt * 1000)
+    info.version = sh(script: "git rev-parse --short=10 HEAD", returnStdout: true).trim()
+    info.subject = sh(script: "git log --pretty=format:%s -1 HEAD", returnStdout: true).trim()
+    info.message = sh(script: "git log -1 HEAD", returnStdout: true).trim()
+    info.author = sh(script: "git log --pretty=format:%an -1 HEAD", returnStdout: true).trim()
+    return info
+}
+
+def buildDockerImage(String dockerfileName, String service, String lang, String tag ,String buildTag) {
+  if (!fileExists(dockerfileName)) {
+    dockerfileName = "Dockerfile.generated"
+    String dockerfile = ""
+    if (lang == "nodejs") {
+      dockerfile = """
+      FROM openresty/openresty:alpine
+      RUN apk --update add tzdata && \
+      cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+      echo "Asia/Shanghai" > /etc/timezone && \
+      apk del tzdata && \
+      rm -rf /var/cache/apk/*
+      COPY build /usr/share/nginx/html
+      COPY deploy/nginx.default.conf /etc/nginx/conf.d/default.conf
+      EXPOSE 80
+      """
+    } else if (lang == "java") {
+      dockerfile = """
+      # 基础镜像使用java
+      FROM openjdk:8
+      # VOLUME 指定了临时文件目录为/tmp。
+      # 其效果是在主机 /var/lib/docker 目录下创建了一个临时文件，并链接到容器的/tmp
+      VOLUME /tmp
+      # 将jar包添加到容器中并更名为app.jar
+      ADD target/ecsheet-0.0.1-SNAPSHOT.jar app.jar
+      # 运行jar包
+      RUN bash -c 'touch /app.jar'
+      ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+      """
+    } else if (lang == "golang") {
+      dockerfile = """
+      FROM golang:alpine
+      WORKDIR /data/app
+      COPY . .
+      RUN go env -w GO111MODULE=on \
+      && go env -w GOPROXY=https://goproxy.cn,direct \
+      && go env -w CGO_ENABLED=0 \
+      && go env \
+      && go mod tidy \
+      && go build -o server .
+      FROM alpine:latest
+      WORKDIR /data/app
+      COPY --from=0 /data/app/server ./
+      EXPOSE 8888
+      RUN apk add tzdata && rm -f /etc/localtime \
+      && ln -sv /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+      && echo "Asia/Shanghai" > /etc/timezone
+      ENTRYPOINT ./server -c config/config.docker.yaml
+      """
+    } else {
+      echo "not supported lang for build docker image."
+    }
+    writeFile(file: dockerfileName, text: dockerfile, encoding: "UTF-8")
+  }
+  String stageText
+  if (service == ""){
+    stageText = "服务构建中"
+  }else{
+    stageText="服务${service}构建中"
+  }
+  try {
+    stage(stageText){
+      if ( buildTag != "" ){
+        image = docker.build(tag, "--build-arg TaskName='${buildTag}' --force-rm -f ${dockerfileName} .")
+      }else{
+        image = docker.build(tag, "--force-rm -f ${dockerfileName} .")
+      }
+      stage('推送镜像') {
+        echo "推送镜像....${service}"
+        image.push()
+      }
+    }
+  } catch (err) {
+    echo err.getMessage()
+    echo "[CI-ERROR] Docker 构建或上传失败。message=${err.getMessage()}"
+    currentBuild.result = 'FAILURE'
+    throw err
+  }
+}
+
+def uploadOSS(String target, String key) {
+  withCredentials([file(credentialsId: 'aliyun-oss-secret', variable: 'OSS_SECRET')]) {
+    sh "ossuploader \
+    -c ${OSS_SECRET} \
+    -e oss-cn-beijing.aliyuncs.com \
+    -b banana-deploy \
+    -i ${target} \
+    -o ${key}"
+  }
+}
+
+def uploadCOS(String target, String key) {
+  withCredentials([file(credentialsId: ' txyun-cos-secret', variable: 'COS_SECRET')]) {
+    sh "cosuploader \
+    -c ${COS_SECRET} \
+    -e https://banana-bjtx-1252363965.cos.ap-beijing.myqcloud.com \
+    -i ${target} \
+    -o ${key}"
+  }
+}
+
+def getImageAdd(String env = "mind-pre"){
+  if (env == "mind-pro"){
+    return "ccr.ccs.tencentyun.com/mind_release"
+  }else{
+    return "ccr.ccs.tencentyun.com/mind_pre"
+  }
+}
+
+def createBananaBuild(String appname,String type, String env, String publisher, String osskey, String image, Object commitInfo, String branch) {
+  bt = new Date()
+  // size = sh(script: "stat -c %s ${target}", returnStdout: true).trim()
+  size = "0"
+  buildjson = readJSON(text: "{}")
+  buildjson.name = appname
+  buildjson.version = commitInfo.version
+  buildjson.branch = branch
+  buildjson.subject = commitInfo.subject
+  buildjson.env = env
+  buildjson.type = type
+  buildjson.size = size.toInteger()
+  buildjson.author = commitInfo.author
+  buildjson.publisher = publisher
+  buildjson.message = commitInfo.message
+  buildjson.commitat = commitInfo.commitat.format("yyyy-MM-dd'T'HH:mm:ssXXX")
+  buildjson.createdat = bt.format("yyyy-MM-dd'T'HH:mm:ssXXX")
+  buildjson.storage = osskey
+  buildjson.image = image
+  writeJSON(file: ".ci-newbuild.json", json: buildjson)
+  sh "cat .ci-newbuild.json"
+  try {
+    def response = sh(script: "curl http://10.0.5.30:5590/app/fromCi \
+    -XPOST -H \"content-type: application/json\" \
+    -d @.ci-newbuild.json", returnStdout: true).trim()
+    def jsonResponse = readJSON text: response
+    def code = jsonResponse.code.toInteger()
+    echo "code: $code"
+    appname = appname
+    env = env
+    // apptype = type
+    def serverEnv = []
+    dir("deploy-config") {
+      git([
+        url: "git@mind-git.im30.lan:sinuo/deploy-config.git",
+        branch: "main",
+        credentialsId: 'deploy-config'
+      ])
+      // certs
+      def PGRDIR = pwd()
+      if ( env == "mind-pro" ){
+        serverEnv.add("KUBECONFIG=$PGRDIR/" + "prod/tke/kube.cfg")
+      } else if ( env == "mind-pre" ){
+        serverEnv.add("KUBECONFIG=$PGRDIR/" + "pre/tke/kube.cfg")
+      }else{
+        serverEnv.add("KUBECONFIG=$PGRDIR/" + "dev/tke/kube.cfg")
+      }
+    }
+    withEnv(serverEnv) {
+      if (code != 0) {
+        echo "部署时出现错误：${response}"
+        currentBuild.result = 'FAILURE'
+      } else{
+        echo "${appname} ${env}"
+        if ( type == "deploy" ){
+          timeout(time: 300, unit: 'SECONDS') {
+            sh(script: "kubectl rollout status deployment ${appname} -n default")
+          }
+        }else if ( type == "cron" ){
+          echo "crontab类型，跳过rollout滚动更新检测"
+        }else if ( type == "sts" ){
+          timeout(time: 300, unit: 'SECONDS') {
+            sh(script: "kubectl rollout status sts ${appname} -n default")
+          }
+        }
+        echo "成功完成部署... response: ${response}"
+      }
+    }
+  } catch(err) {
+    echo "[CI-ERROR] 回调CD失败。message=${err.getMessage()}"
+    currentBuild.result = 'FAILURE'
+  }
+}
+
+
+def preHeatUrls(String appname, String env) {
+  if ( env != "mind-pro" ){
+    echo "非生产环境,不会执行预热操作"
+    return
+  }
+  def urlsMap = [
+    'mind-links':['https://mind.im30.net/links/'],
+    'mind-approval-web':['https://mind.im30.net/approval/'],
+    'mind-doc-common-web':['https://mind.im30.net/docs/'],
+    'mind-system-admin':['https://mind.im30.net/system/'],
+    'mind-doc-sheet-web':['https://mind.im30.net/drive/excel/'],
+    'mind-doc-for-shimo':['https://mind.im30.net/docs/smdoc/'],
+    'mind-pc-about':['https://mind.im30.net/page/'],
+    'mind-nodes-mymind':['https://mind.im30.net/docs/brain/'],
+    'mind-people-admin':['https://mind.im30.net/personnel/'],
+    'mind-people-web':['https://mind.im30.net/entryManage/'],
+    'mind-data':['https://mind.im30.net/data/']
+  ]
+  def urls = urlsMap[appname]
+  if ( urls == null ){
+    echo "Url not is exist"
+    return
+  }
+  buildjson = readJSON(text: "{}")
+  buildjson.urls = urls
+  writeJSON(file: ".preheat.json", json: buildjson)
+  sh "cat .preheat.json"
+  try {
+    def response = sh(script: "curl http://82.156.165.244:30736/cdn/preheat \
+      -XPOST -H \"content-type: application/json\" \
+      -d @.preheat.json",
+      returnStatus: true)
+  } catch(err) {
+    echo "[ERROR] 回调预热接口失败。message=${err.getMessage()}"
+  }
+}
+
+
+def buildApps(BuildConfig buildConfig = null) {
+  if (buildConfig == null) {
+    return
+  }
+  String branchName = getBranchName()
+  Object commitInfo = getCommitInfo()
+  List<Object> apps = buildConfig.getApps()
+  for (Object app : apps) {
+    build job: "APP_${app.name}",
+    parameters: [string(name: 'COMMIT', value: "${commitInfo.version}"), string(name: 'BRANCH', value: "${branchName}")],
+    wait: false
+    echo "Trigger another job for build: APP_${app.name}"
+  }
+}
