@@ -2,14 +2,14 @@
  * @description: jenkins pipeline 真实案例（部分）
  */
 
-// import com.mind.jenkins.pipeline.utils.BuildConfig
+// import com.jenkins.pipeline.utils.BuildConfig
 
 def call() {
   // properties([
   //   parameters([
   //     string(defaultValue: '', description: '', name: 'COMMIT', trim: false),
   //     string(defaultValue: 'pre-release', description: '', name: 'BRANCH', trim: false),
-  //     choice(choices: ['mind-pre', 'mind-pro', 'mind-dev'], description: '选择发布环境,默认pre', name: 'ENV'),
+  //     choice(choices: ['pre', 'pro', 'dev'], description: '选择发布环境,默认pre', name: 'ENV'),
   //     choice(choices: ['pre-release', 'release'], description: '选择分支,默认pre-release', name: 'BRANCH'),
   //   ])
   // ])
@@ -26,7 +26,7 @@ def call() {
       // }
       // }
       // confirm before start pipeline
-      if ("${ENV}" == "mind-pro"){
+      if ("${ENV}" == "pro"){
         stage('部署生产之前二次确认') {
           input(message: "确定发布环境 ${ENV} 的 ${BRANCH}分支？", ok: 'Continue')
         }
@@ -60,60 +60,60 @@ def call() {
         nodejs(nodejsVersion){
           echo "当前node版本：${nodejsVersion}"
           // check node version
-          if (appname == "mind-open-platform-admin"){
+          if (appname == "open-platform-admin"){
             echo "npm本地仓库跳过：${appname}"
           } else {
-            sh 'npm config set registry http://10.0.2.8:4873/;'
+            sh 'npm config set registry ****;'
           }
           // install
-          if (appname == "mind-people-admin"){
+          if (appname == "people-admin"){
             sh 'npm install --legacy-peer-deps'
-          }else if (appname == "mind-pc-web"){
+          }else if (appname == "pc-web"){
             if (buildType != null && buildType == "onlyUpgradeTips"){
               return
             }else{
               sh 'pnpm install'
             }
-          }else if (appname == "mind-sso-web" || appname == "mind-open-platform-admin"){
+          }else if (appname == "sso-web" || appname == "open-platform-admin"){
             sh 'pnpm install'
-          }else if (appname == "mind-approval-web"){
+          }else if (appname == "approval-web"){
             sh 'rm -rf node_modules'
             sh 'yarn install;'
           } else{
             sh 'npm install'
           }
           // build
-          if(appname == "mind-data"){
-            if(params.ENV == "mind-pre"){
+          if(appname == "data"){
+            if(params.ENV == "pre"){
               sh 'npm run build:pre -- --env.CI=false'
             }else{
               sh 'npm run build:prod -- --env.CI=false'
             }
-          } else if (appname == "mind-links"){
-            if(params.ENV == "mind-pre"){
+          } else if (appname == "links"){
+            if(params.ENV == "pre"){
               sh 'sh ./patch-version.sh pre_release'
               sh 'npm run generate:pre'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'sh ./patch-version.sh release'
               sh 'npm run generate'
             }else{
               sh 'npm run generate'
             }
-          }else if (appname == "mind-people-web"){
-            if(params.ENV == "mind-pre"){
+          }else if (appname == "people-web"){
+            if(params.ENV == "pre"){
               sh 'sh ./patch-version.sh pre-release'
               sh 'npm run build:pre -- --env.CI=false'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'sh ./patch-version.sh release'
               sh 'npm run build:prod -- --env.CI=false'
             }else{
               sh 'echo 1'
             }
-          }else if (appname == "mind-doc-for-shimo"){
-            if(params.ENV == "mind-pre"){
+          }else if (appname == "doc-for-shimo"){
+            if(params.ENV == "pre"){
               sh 'sh ./patch-version.sh pre-release'
               sh 'npm run build:pre'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'sh ./patch-version.sh release'
               sh 'npm run build:prod'
             }else{
@@ -124,54 +124,54 @@ def call() {
             sh 'rm -fr build'
             sh 'mkdir build'
             sh 'cp -fr dist/* build'
-          }else if (appname == "mind-doc-common-web"){
+          }else if (appname == "doc-common-web"){
             sh 'npm ci --no-optional;'
-            if(params.ENV == "mind-pre"){
+            if(params.ENV == "pre"){
               sh 'sh ./patch-version.sh pre-release'
               sh 'npm run build:pre'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'sh ./patch-version.sh release'
               sh 'npm run build:prod'
             }else{
               sh 'npm run build:test'
             }
-          }else if (appname == "mind-team-admin"){
-            if(params.ENV == "mind-pre"){
+          }else if (appname == "team-admin"){
+            if(params.ENV == "pre"){
               sh 'sh ./patch-version.sh pre-release'
               sh 'npm run build:pre -- --env.CI=false'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'sh ./patch-version.sh release'
               sh 'npm run build:prod -- --env.CI=false'
             }else{
               echo "pass"
               sh 'npm run build -- --env.CI=false'
             }
-          }else if (appname == "mind-people-admin"){
-            if(params.ENV == "mind-pre"){
+          }else if (appname == "people-admin"){
+            if(params.ENV == "pre"){
               sh 'sh ./patch-version.sh pre-release'
               sh 'npm run build:pre -- --env.CI=false'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'sh ./patch-version.sh release'
               sh 'npm run build:prod -- --env.CI=false'
             }else{
               echo "pass"
               sh 'npm run build -- --env.CI=false'
             }
-          }else if (appname == "mind-notes-mymind"){
-            if(params.ENV == "mind-pre"){
+          }else if (appname == "notes-my"){
+            if(params.ENV == "pre"){
               sh 'npm run build:pre'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'npm run build:prod'
             }else{
               sh 'npm run build:test'
             }
             sh 'rm -fr build'
             sh 'mv dist build'
-          }else if (appname == "mind-approval-web"){
-            if(params.ENV == "mind-pre"){
+          }else if (appname == "approval-web"){
+            if(params.ENV == "pre"){
               sh 'sh ./patch-version.sh pre-release'
               sh 'npm run build:pre'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'sh ./patch-version.sh release'
               sh 'npm run build:prod'
             }else{
@@ -179,37 +179,37 @@ def call() {
             }
             sh 'rm -fr build'
             sh 'mv dist build'
-          }else if (appname == "mind-sso-web"){
-            if(params.ENV == "mind-pre"){
+          }else if (appname == "sso-web"){
+            if(params.ENV == "pre"){
               sh 'pnpm run build:pre'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'pnpm run build:prod'
             }else{
               sh 'pnpm run build'
             }
-          }else if (appname == "mind-pc-web"){
-            if(params.ENV == "mind-pre"){
+          }else if (appname == "pc-web"){
+            if(params.ENV == "pre"){
               sh 'pnpm run build:pre'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'sh ./patch-version.sh release'
               sh 'pnpm run build:prod'
             }else{
               sh 'pnpm run build'
             }
-          }else if (appname == "mind-open-platform-admin"){
-            if(params.ENV == "mind-pre"){
+          }else if (appname == "open-platform-admin"){
+            if(params.ENV == "pre"){
               sh 'sh ./patch-version.sh pre_release'
               sh 'pnpm run build:pre'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'sh ./patch-version.sh release'
               sh 'pnpm run build:prod'
             }else{
               sh 'pnpm run build'
             }
           }else{
-            if(params.ENV == "mind-pre"){
+            if(params.ENV == "pre"){
               sh 'npm run build:pre -- --env.CI=false'
-            }else if (params.ENV == "mind-pro"){
+            }else if (params.ENV == "pro"){
               sh 'npm run build:prod -- --env.CI=false'
             }else{
               sh 'npm run build -- --env.CI=false'
@@ -257,9 +257,9 @@ def call() {
         }
         echo "Build success, Now Callback Cd..."
         String env = params.ENV
-        if ( appname == "mind-job-server" ){
+        if ( appname == "job-server" ){
           jobUtil.createBananaBuild(appname, "sts", env, buildUser, coskey, imageName, commitInfo, params.BRANCH)
-        }else if (appname == "mind-sync-server" ){
+        }else if (appname == "sync-server" ){
           jobUtil.createBananaBuild(appname, "cron", env, buildUser, coskey, imageName, commitInfo, params.BRANCH)
         }else{
           jobUtil.createBananaBuild(appname, "deploy", env, buildUser, coskey, imageName, commitInfo, params.BRANCH)
@@ -287,11 +287,11 @@ def call() {
           String buildType = params.buildType
           if (buildType != null && (buildType == "all" || buildType == "onlyUpgradeTips")){
             switch(env) {
-              case "mind-pre":
-                sh "curl -X POST https://premind.im30.net/api/versionManage/webUpgrade"
+              case "pre":
+                sh "curl -X POST ****/api/versionManage/webUpgrade"
                 break
-              case "mind-pro":
-                sh "curl -X POST https://mind.im30.net/api/versionManage/webUpgrade"
+              case "pro":
+                sh "curl -X POST ****/api/versionManage/webUpgrade"
                 break
             }
           }
@@ -314,7 +314,7 @@ def getRepoName() {
   } else if (name.startsWith("FEREPO_")) {
     int idx = name.indexOf("/")
     return name.substring(7, idx)
-  } else if (name.startsWith("Mind-")) {
+  } else if (name.startsWith("")) {
     return name.substring(4)
   } else if (name.startsWith("GITLAB_")) {
     return name.substring(7)
@@ -340,7 +340,7 @@ def isDiff() {
 
 def isAPP() {
   String name = env.JOB_NAME
-  return name.startsWith("mind-") || name.startsWith("app-")
+  return name.startsWith("") || name.startsWith("app-")
 }
 
 def isREPO() {
@@ -366,7 +366,7 @@ def isFEREPO() {
 
 def getAppNameFromJob() {
   String name = env.JOB_NAME
-  if (name.startsWith("mind-")) {
+  if (name.startsWith("")) {
     return name
   }
   if (name.startsWith("app-")) {
@@ -481,17 +481,17 @@ def uploadCOS(String target, String key) {
   withCredentials([file(credentialsId: ' txyun-cos-secret', variable: 'COS_SECRET')]) {
     sh "cosuploader \
     -c ${COS_SECRET} \
-    -e https://banana-bjtx-1252363965.cos.ap-beijing.myqcloud.com \
+    -e ****.ap-beijing.myqcloud.com \
     -i ${target} \
     -o ${key}"
   }
 }
 
-def getImageAdd(String env = "mind-pre"){
-  if (env == "mind-pro"){
-    return "ccr.ccs.tencentyun.com/mind_release"
+def getImageAdd(String env = "pre"){
+  if (env == "pro"){
+    return "ccr.ccs.tencentyun.com/release"
   }else{
-    return "ccr.ccs.tencentyun.com/mind_pre"
+    return "ccr.ccs.tencentyun.com/pre"
   }
 }
 
@@ -517,7 +517,7 @@ def createBananaBuild(String appname,String type, String env, String publisher, 
   writeJSON(file: ".ci-newbuild.json", json: buildjson)
   sh "cat .ci-newbuild.json"
   try {
-    def response = sh(script: "curl http://10.0.5.30:5590/app/fromCi \
+    def response = sh(script: "curl ****/app/fromCi \
     -XPOST -H \"content-type: application/json\" \
     -d @.ci-newbuild.json", returnStdout: true).trim()
     def jsonResponse = readJSON text: response
@@ -529,15 +529,15 @@ def createBananaBuild(String appname,String type, String env, String publisher, 
     def serverEnv = []
     dir("deploy-config") {
       git([
-        url: "git@mind-git.im30.lan:sinuo/deploy-config.git",
+        url: "git@git.im30.lan:sinuo/deploy-config.git",
         branch: "main",
         credentialsId: 'deploy-config'
       ])
       // certs
       def PGRDIR = pwd()
-      if ( env == "mind-pro" ){
+      if ( env == "pro" ){
         serverEnv.add("KUBECONFIG=$PGRDIR/" + "prod/tke/kube.cfg")
-      } else if ( env == "mind-pre" ){
+      } else if ( env == "pre" ){
         serverEnv.add("KUBECONFIG=$PGRDIR/" + "pre/tke/kube.cfg")
       }else{
         serverEnv.add("KUBECONFIG=$PGRDIR/" + "dev/tke/kube.cfg")
@@ -571,22 +571,22 @@ def createBananaBuild(String appname,String type, String env, String publisher, 
 
 
 def preHeatUrls(String appname, String env) {
-  if ( env != "mind-pro" ){
+  if ( env != "pro" ){
     echo "非生产环境,不会执行预热操作"
     return
   }
   def urlsMap = [
-    'mind-links':['https://mind.im30.net/links/'],
-    'mind-approval-web':['https://mind.im30.net/approval/'],
-    'mind-doc-common-web':['https://mind.im30.net/docs/'],
-    'mind-system-admin':['https://mind.im30.net/system/'],
-    'mind-doc-sheet-web':['https://mind.im30.net/drive/excel/'],
-    'mind-doc-for-shimo':['https://mind.im30.net/docs/smdoc/'],
-    'mind-pc-about':['https://mind.im30.net/page/'],
-    'mind-nodes-mymind':['https://mind.im30.net/docs/brain/'],
-    'mind-people-admin':['https://mind.im30.net/personnel/'],
-    'mind-people-web':['https://mind.im30.net/entryManage/'],
-    'mind-data':['https://mind.im30.net/data/']
+    'links':['****/links/'],
+    'approval-web':['****/approval/'],
+    'doc-common-web':['****/docs/'],
+    'system-admin':['****/system/'],
+    'doc-sheet-web':['****/drive/excel/'],
+    'doc-for-shimo':['****/docs/smdoc/'],
+    'pc-about':['****/page/'],
+    'nodes-my':['****/docs/brain/'],
+    'people-admin':['****/personnel/'],
+    'people-web':['****/entryManage/'],
+    'data':['****/data/']
   ]
   def urls = urlsMap[appname]
   if ( urls == null ){
@@ -598,7 +598,7 @@ def preHeatUrls(String appname, String env) {
   writeJSON(file: ".preheat.json", json: buildjson)
   sh "cat .preheat.json"
   try {
-    def response = sh(script: "curl http://82.156.165.244:30736/cdn/preheat \
+    def response = sh(script: "curl ****/cdn/preheat \
       -XPOST -H \"content-type: application/json\" \
       -d @.preheat.json",
       returnStatus: true)
